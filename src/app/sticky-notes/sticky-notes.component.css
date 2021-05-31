@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+:root{
+  --bgcolor:red;
+}
+*{
+  font-family: 'Kalam', cursive;
+}
+h1{
+  font-size: 4em;
+  font-family: 'Amatic SC', cursive;
+}
+ul{
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-flow: row wrap;
+}
+.note{
+  display: block;
+  width: 250px;
+  height: 240px;
+  /*background: #bbe9ff;*/
+  background:var(--bgcolor);
+  margin: 30px;
+  box-shadow:
+    inset 0 -40px 40px rgba(0,0,0,0.15),
+    inset 0 30px 20px rgba(0,0,0,0.15),
+    0 5px 6px 5px rgba(0,0,0,0.15);
+  border-radius:0 0 0 35px/50px;
+  position:relative;
+  overflow: hidden;
+  padding: 10px;
+  transition: 0.5s;
+;
+}
+.note:before {
+  content:"";
+  display:block;
+  position:absolute;
+  width:25px;
+  height:30px;
+  background:var(--bgcolor);
+  box-shadow:
+    3px -2px 10px rgba(0,0,0,0.2),
+    inset 15px -15px 15px rgba(0,0,0,0.3);
+  left:0;
+  bottom:0;
+  z-index:2;
+  transform:skewX(25deg);
+}
+.note:hover,.note:focus,.note[contenteditable="true"]:active,.note[contenteditable="true"]:focus{
+  box-shadow:
+    10px 10px 7px rgba(0,0,0,.4),
+    inset 0 -40px 40px rgba(0,0,0,0.15),
+    inset 0 30px 20px rgba(0,0,0,0.15) !important;
+  transform: scale(1.25) !important;
+  position:relative !important;
+  z-index:5 !important;
+}
+.note-add{
+  opacity: 0.35;
+  background: #98ff9a;
+  font-size: 100px;
+  text-align: center;
+  vertical-align: center;
+  color: rgba(30,30,30,0.2);
+  line-height: 240px;
+  transition: 0.25s;
+}
+.note-add:hover,.note-add:focus{
+  opacity: 0.55;
+}
+
+
+[contenteditable] {
+  outline: 0px solid transparent;
+}
+.note {
+  transform: rotate(-6deg);
+}
+.note:nth-child(even) {
+  transform:rotate(4deg);
+  /*background: #ffb8b8;*/
+  top:5px;
+}
+.note:nth-child(even):before{
+  /*background: #ffb8b8;*/
+}
+.note:nth-child(3n) {
+  transform:rotate(-3deg);
+  top:-5px;
+}
+.note:nth-child(5n) {
+  transform:rotate(5deg);
+  /*background: #98ff9a;*/
+  top:-10px;
+}
+.note:nth-child(5n):before{
+  /*background: #98ff9a;*/
+}
+.remove{
+  position: absolute;
+  border: none;
+  background: transparent;
+  height: 30px;
+  width: 30px;
+  color: rgba(57, 57, 57, 0.32);
+  font-size: 20px;
+  transition: 0.25s;
+  right: 20px;
+  top: 10px;
+}
+.remove:hover,.remove:focus{
+  color: #ff5c5c;
+}
+
+.header{
+  text-align: center;
+}
+
+.mode {
+  padding: 20px;
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  font-size: 1.5em;
+  color: green;
+  font-weight: bold;
+  font-family: 'Amatic SC', cursive;
+}
+.mode:hover, .note-add:hover{
+  cursor: pointer;
+}
+
+.note p{
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  display: block;
+  max-height: 150px;
+  overflow: hidden;
+  font-size: 1.4em;
+}
+.note h2{
+
+
+  display: block;
+  max-height: 1.5em;
+  line-height: 1.5em;
+  overflow: hidden;
+}

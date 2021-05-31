@@ -1,0 +1,18 @@
+<div class="header">
+  <h1>Something important? Post-it!</h1>
+  <button (click)="changeMode()" class="mode">{{!editable ? 'Edit notes' : 'Save changes'}}</button>
+</div>
+<ul>
+  <li *ngFor="let note of notes; let i = index" class="note" [style]="'--bgcolor:' + note.color">
+    <button *ngIf="editable" (click)="removeNote(i)" class="remove">
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+    <h2 [contentEditable]="editable" [textContent]="note.title " (input)="updateTitle(note,$event)"></h2>
+    <p [contentEditable]="editable" [textContent]="note.text" (input)="updateText(note,$event)"> {{note.text}}</p>
+  </li>
+  <li class="note note-add" *ngIf="editable" (click)="addNote()">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </li>
+</ul>
+
+
